@@ -19,7 +19,7 @@
 <link href="<?=base_url()?>assets/dist/css/custom.css" rel="stylesheet">
 
 <!-- font awesome -->
-<link href="<?=base_url()?>assets/dist/css/font-awesome.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
 
 <!-- datatables -->
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/plug-ins/9dcbecd42ad/integration/bootstrap/3/dataTables.bootstrap.css">

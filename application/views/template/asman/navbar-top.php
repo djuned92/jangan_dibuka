@@ -15,9 +15,9 @@
             <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
         </a>
         <ul class="dropdown-menu dropdown-user">
-            <li><a href="<?=base_url()?>halaman/asman/edit_profile"><i class="fa fa-user fa-fw"></i> Edit Profile</a>
+            <li><a href="<?=base_url()?>asman/edit_profile"><i class="fa fa-user fa-fw"></i> Edit Profile</a>
             </li>
-            <li><a href="<?=base_url()?>halaman/asman/ubah_password"><i class="fa fa-lock fa-fw"></i> Ubah Password</a>
+            <li><a href="<?=base_url()?>asman/ubah_password"><i class="fa fa-lock fa-fw"></i> Ubah Password</a>
             </li>
             <li class="divider"></li>
             <li><a href="<?=base_url()?>auth/users/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
