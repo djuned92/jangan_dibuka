@@ -63,4 +63,13 @@ class Nilai_pegawai_model extends CI_Model{
 				      ->get();
 		return $q->result();
 	}
+
+	public function num_row_nilai_pegawai()
+	{
+		return $this->db->select('dt.id_nilai_pegawai')
+						->from('detail_nilai as dt')
+						->group_by('id_nilai_pegawai')
+						->get('detail_nilai')
+						->num_rows();
+	}
 }
