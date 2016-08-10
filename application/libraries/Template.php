@@ -58,6 +58,7 @@ class Template {
 			'navbar-top'	=> $this->CI->load->view('template/asman/navbar-top', $data, TRUE),
 			'navbar-sidebar'=> $this->CI->load->view('template/asman/navbar-sidebar', $data, TRUE),
 			'content'		=> $this->CI->load->view($content, $data, TRUE),
+			'footer'		=> $this->CI->load->view('template/asman/footer', $data, TRUE),
 			'script'		=> $this->CI->load->view('template/asman/script', $data, TRUE)
 			);
 		

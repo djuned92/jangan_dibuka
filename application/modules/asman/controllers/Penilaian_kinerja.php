@@ -6,10 +6,10 @@ class Penilaian_kinerja extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// if ($this->session->userdata('level_user') != 'Asman')
-		// {
-		// 	redirect('auth/users');
-		// }
+		if ($this->session->userdata('level_user') != 'Asman')
+		{
+			redirect('auth/users');
+		}
 
 		$this->load->model(array(
 			'nilai_pegawai_model'	=> 'nilai_pegawai',

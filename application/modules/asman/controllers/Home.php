@@ -6,10 +6,10 @@ class Home extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		// if ($this->session->userdata('level_user') != 'Asman')
-		// {
-		// 	redirect('auth/users');
-		// }
+		if ($this->session->userdata('level_user') != 'Asman')
+		{
+			redirect('auth/users');
+		}
 
 		$this->load->model('jabatan_model','jabatan');
 	}

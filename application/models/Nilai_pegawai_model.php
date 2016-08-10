@@ -50,26 +50,27 @@ class Nilai_pegawai_model extends CI_Model{
 		return $q->result();
 	}
 
-	public function detail_nilai_pegawai()
+	public function detail_nilai_pegawai($tahun)
 	{
-		$where = "kt.tahun = 2014 and kt.id_kriteria = dt.id_kriteria";
-		$q = $this->db->select('dt.id_nilai_pegawai, dt.id_kriteria, dt.bobot_nilai,np.*,kt.tahun, kt.id_kriteria, kt.bobot')
+		// $where = "np.tahun = $tahun and kt.id_kriteria = dt.id_kriteria";
+		$q = $this->db->select('dt.id_detail_nilai, dt.id_nilai_pegawai, dt.id_kriteria, dt.bobot_nilai,np.*,kt.tahun, kt.id_kriteria, kt.bobot')
 				      ->from('detail_nilai as dt')
 				      ->join('nilai_pegawai as np','dt.id_nilai_pegawai = np.id_nilai_pegawai')
 				      ->join('kriteria_tahunan as kt','kt.tahun = np.tahun')
-				      ->where($where)
-				      // ->group_by(array('dt.id_nilai_pegawai'))
-				      ->order_by('dt.id_detail_nilai','ASC')
+				      ->where('kt.id_kriteria = dt.id_kriteria and np.tahun = ', $tahun)
 				      ->get();
 		return $q->result();
 	}
 
-	public function num_row_nilai_pegawai()
+	public function num_row_nilai_pegawai($tahun)
 	{
-		return $this->db->select('dt.id_nilai_pegawai')
+		$q = $this->db->select('dt.id_nilai_pegawai, np.tahun, np.id_nilai_pegawai')
 						->from('detail_nilai as dt')
-						->group_by('id_nilai_pegawai')
-						->get('detail_nilai')
-						->num_rows();
+						->join('nilai_pegawai as np','dt.id_nilai_pegawai = np.id_nilai_pegawai')
+						->group_by('dt.id_nilai_pegawai')
+						//->where('np.tahun',$tahun)
+						->get();
+		return $q->num_rows();
+		// return $q->result();
 	}
 }

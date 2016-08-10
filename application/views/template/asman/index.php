@@ -17,6 +17,7 @@
         </nav>
 
         {content}
+        {footer}
 
     </div>
     <!-- /#wrapper -->
