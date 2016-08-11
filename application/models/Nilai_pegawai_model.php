@@ -50,6 +50,19 @@ class Nilai_pegawai_model extends CI_Model{
 		return $q->result();
 	}
 
+	// untuk tampilan detail  diview join 3 jabatan, pegawai, nilai pegawai
+	public function _detail_nilai_pegawai($tahun)
+	{
+		$q = $this->db->select('j.*,p.*,np.*')
+						->from('nilai_pegawai as np')
+						->join('pegawai as p','p.id_pegawai = np.id_pegawai')
+						->join('jabatan as j','j.id_jabatan = np.id_jabatan')
+						->order_by('np.id_nilai_pegawai','ASC')
+						->where('np.tahun', $tahun)
+						->get();
+		return $q->result();
+	}
+
 	public function detail_nilai_pegawai($tahun)
 	{
 		// $where = "np.tahun = $tahun and kt.id_kriteria = dt.id_kriteria";
