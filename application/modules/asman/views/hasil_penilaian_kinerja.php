@@ -8,55 +8,82 @@
         </div>
         
         <div class="row">
-          <div class="col-lg-12 ">
+          <?php if ($this->uri->segment(4) == NULL): ?>
+            <form action="" class="form-horizontal" method="POST">
+              <div class="form-group">
+                <label class="col-md-2 control-label">Tahun</label>
+                <div class="col-md-4">
+                  <div class="btn-group">
+                      <button class="btn btn-md btn-default" disabled>
+                          <?php 
+                              foreach($tahun as $r)
+                              {
+                                  if($this->uri->segment(4) == $r->tahun)
+                                  {
+                                      echo $r->tahun; 
+                                  }
+                              }
+                              if($this->uri->segment(4) == '')
+                              {
+                                  echo "-- Pilih --";
+                              }
+                          ?>
+                      </button>
+                      <button class="btn btn-md btn-default dropdown-toggle"  data-toggle="dropdown">
+                          <span class="caret"></span>
+                          <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                          <?php foreach($tahun as $r): ?>
+                          <li><a href="<?=base_url()?>asman/hasil_penilaian_kinerja/index/<?=$r->tahun?>"><?=$r->tahun?></a></li>
+                          <?php endforeach; ?>
+                      </ul>
+                  </div>
+                </div>
+              </div>
+            </form>
+          <?php elseif($this->uri->segment(4) != NULL):?>
+            <form action="" class="form-horizontal" method="POST">
+              <div class="form-group">
+                <label class="col-md-2 control-label">Tahun</label>
+                <div class="col-md-4">
+                  <div class="btn-group">
+                      <button class="btn btn-md btn-default" disabled>
+                          <?php 
+                              foreach($tahun as $r)
+                              {
+                                  if($this->uri->segment(4) == $r->tahun)
+                                  {
+                                      echo $r->tahun; 
+                                  }
+                              }
+                              if($this->uri->segment(4) == '')
+                              {
+                                  echo "-- Pilih --";
+                              }
+                          ?>
+                      </button>
+                      <button class="btn btn-md btn-default dropdown-toggle"  data-toggle="dropdown">
+                          <span class="caret"></span>
+                          <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                          <?php foreach($tahun as $r): ?>
+                          <li><a href="<?=base_url()?>asman/hasil_penilaian_kinerja/index/<?=$r->tahun?>"><?=$r->tahun?></a></li>
+                          <?php endforeach; ?>
+                      </ul>
+                  </div>
+                </div>
+              </div>
+            </form>
 
-            <table class="table table-striped table-bordered table-hover" id="myTable">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Nama</th>
-                  <th>Jabatan yang diusulkan</th>
-                  <th>Hasil Penilaian</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                  $x = 1;
-                  foreach($_detail_nilai_pegawai as $r):
-                ?>
-                <tr>
-                  <td><?=$x++?></td>
-                  <td><?=$r->nama?></td>
-                  <td><?=$r->nama_jabatan?></td>
-                  <td>
-                    <?php
-                      $hasil = 0;
-                      for($i=1; $i<=$total; $i++)
-                      {
-                       foreach ($detail_nilai_pegawai as $datas) 
-                       {
-                         if($datas->id_nilai_pegawai == $i)
-                         {
-                           $evaluasi = $datas->bobot * $datas->bobot_nilai;
-                           $hasil += $evaluasi;
-                         }
-                       }
-                       if($hasil !=0 and $r->id_nilai_pegawai == $i)
-                       { 
-                         echo $hasil;
-                       }
-                       $hasil = 0; // reset hasil
-                      }
-                    ?>
-                  </td>
-                </tr>
-                <?php
-                  endforeach;
-                ?>
-              </tbody>
-            </table>
-              
-          </div>
+            <div class="col-lg-6">
+              <div id="chart_div"></div>
+            </div>
+            <div class="col-lg-6">
+              <div id="chart_div_2"></div>          
+            </div>
+          <?php endif; ?>
         </div>
 
     </div><!-- /.container-fluid -->

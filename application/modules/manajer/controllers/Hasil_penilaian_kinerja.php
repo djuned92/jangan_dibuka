@@ -6,7 +6,7 @@ class Hasil_penilaian_kinerja extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();	
-		if ($this->session->userdata('level_user') != 'Admin')
+		if ($this->session->userdata('level_user') != 'Manajer')
 		{
 			redirect('auth/users');
 		}
@@ -19,7 +19,7 @@ class Hasil_penilaian_kinerja extends CI_Controller {
 		$data['_detail_nilai_pegawai'] = $this->nilai_pegawai->_detail_nilai_pegawai($tahun);
 		$data['detail_nilai_pegawai'] = $this->nilai_pegawai->detail_nilai_pegawai($tahun);
 		$data['total'] = $this->nilai_pegawai->num_row_nilai_pegawai($tahun); // banyaknya num rows berdasarkan tahun
-		$this->template->admin('hasil_penilaian_kinerja','chart',$data);
+		$this->template->manajer('hasil_penilaian_kinerja','chart',$data);
 		// echo json_encode($data);
 		// echo count($data);
 
@@ -52,4 +52,4 @@ class Hasil_penilaian_kinerja extends CI_Controller {
 	}
 }
 /* End of file Hasil_penilaian_kinerja.php */
-/* Location: ./application/modules/admin/controllers/Hasil_penilaian_kinerja.php */
+/* Location: ./application/modules/manajer/controllers/Hasil_penilaian_kinerja.php */

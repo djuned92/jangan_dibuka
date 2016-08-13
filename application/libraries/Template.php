@@ -69,4 +69,23 @@ class Template {
 		
 		$this->CI->parser->parse('template/asman/index', $data);
 	}
+
+	public function manajer($content, $script = NULL, $data = NULL)
+	{
+		$data = array(
+			'head'			=> $this->CI->load->view('template/manajer/head', $data, TRUE),
+			'navbar-top'	=> $this->CI->load->view('template/manajer/navbar-top', $data, TRUE),
+			'navbar-sidebar'=> $this->CI->load->view('template/manajer/navbar-sidebar', $data, TRUE),
+			'content'		=> $this->CI->load->view($content, $data, TRUE),
+			'footer'		=> $this->CI->load->view('template/manajer/footer', $data, TRUE),
+			'script'		=> $this->CI->load->view('template/manajer/script', $data, TRUE)
+			);
+		
+		if ($script != NULL) 
+		{
+			$data['mod-script'] = $this->CI->load->view($script, $data, TRUE);
+		}
+		
+		$this->CI->parser->parse('template/manajer/index', $data);
+	}
 }

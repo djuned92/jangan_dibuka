@@ -15,10 +15,11 @@ class Hasil_penilaian_kinerja extends CI_Controller {
 
 	public function index($tahun = NULL)
 	{
+		$data['tahun'] = $this->nilai_pegawai->get_tahun();
 		$data['_detail_nilai_pegawai'] = $this->nilai_pegawai->_detail_nilai_pegawai($tahun);
 		$data['detail_nilai_pegawai'] = $this->nilai_pegawai->detail_nilai_pegawai($tahun);
 		$data['total'] = $this->nilai_pegawai->num_row_nilai_pegawai($tahun); // banyaknya num rows berdasarkan tahun
-		$this->template->asman('Hasil_penilaian_kinerja','script',$data);
+		$this->template->asman('hasil_penilaian_kinerja','chart',$data);
 		// echo json_encode($data);
 		// echo count($data);
 

@@ -20,7 +20,7 @@ class Penilaian_kinerja extends CI_Controller {
 
 	public function index($tahun = NULL)
 	{
-		$data['tahun'] = $$tahun = $this->nilai_pegawai->get_tahun();
+		$data['tahun'] = $this->nilai_pegawai->get_tahun();
 		$data['penilaian']	= $this->nilai_pegawai->get_nilai_pegawai($tahun);
 		$data['tahun_kriteria'] = $this->kriteria_tahunan->detail_kriteria_tahunan($tahun);
 		$this->template->asman('penilaian_kinerja','script',$data);

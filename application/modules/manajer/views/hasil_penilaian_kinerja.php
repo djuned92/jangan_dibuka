@@ -35,7 +35,7 @@
                       </button>
                       <ul class="dropdown-menu" role="menu">
                           <?php foreach($tahun as $r): ?>
-                          <li><a href="<?=base_url()?>admin/hasil_penilaian_kinerja/index/<?=$r->tahun?>"><?=$r->tahun?></a></li>
+                          <li><a href="<?=base_url()?>manajer/hasil_penilaian_kinerja/index/<?=$r->tahun?>"><?=$r->tahun?></a></li>
                           <?php endforeach; ?>
                       </ul>
                   </div>
@@ -69,7 +69,7 @@
                       </button>
                       <ul class="dropdown-menu" role="menu">
                           <?php foreach($tahun as $r): ?>
-                          <li><a href="<?=base_url()?>admin/hasil_penilaian_kinerja/index/<?=$r->tahun?>"><?=$r->tahun?></a></li>
+                          <li><a href="<?=base_url()?>manajer/hasil_penilaian_kinerja/index/<?=$r->tahun?>"><?=$r->tahun?></a></li>
                           <?php endforeach; ?>
                       </ul>
                   </div>
