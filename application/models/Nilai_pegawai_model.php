@@ -5,6 +5,7 @@ class Nilai_pegawai_model extends CI_Model{
 	public function create_usulan_pegawai()
 	{
 		$tahun = $this->input->post('tahun');
+		$status_nilai_pegawai = 'Tidak Dipromosikan';
 		$jabatan = $this->input->post('id_jabatan');
 		$id_pegawai = $this->input->post('id_pegawai');
 
@@ -12,6 +13,7 @@ class Nilai_pegawai_model extends CI_Model{
 		{
 			$data[] = array(
 				'tahun'			=> $tahun,
+				'status_nilai_pegawai'	=> $status_nilai_pegawai,
 				'id_jabatan'	=> $jabatan,
 				'id_pegawai'	=> $id_pegawai[$i]
 				);
@@ -85,5 +87,21 @@ class Nilai_pegawai_model extends CI_Model{
 						->get();
 		return $q->num_rows();
 		// return $q->result();
+	}
+
+	public function promosi($id_nilai_pegawai, $data)
+	{
+		$data = array(
+			'status_nilai_pegawai'	=> 'Dipromosikan'
+			);
+		$this->db->where('id_nilai_pegawai',$id_nilai_pegawai)->update('nilai_pegawai', $data);
+	}
+
+	public function tidak_promosi($id_nilai_pegawai, $data)
+	{
+		$data = array(
+			'status_nilai_pegawai'	=> 'Tidak Dipromosikan'
+			);
+		$this->db->where('id_nilai_pegawai',$id_nilai_pegawai)->update('nilai_pegawai', $data);
 	}
 }

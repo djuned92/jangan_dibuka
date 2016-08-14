@@ -6,22 +6,20 @@ class Hasil_penilaian_kinerja extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();	
-		if ($this->session->userdata('level_user') != 'Manajer')
+		if ($this->session->userdata('level_user') != 'SPV SDM')
 		{
 			redirect('auth/users');
 		}
 		$this->load->model('nilai_pegawai_model','nilai_pegawai');
-		$this->load->model('pegawai_model','pegawai');
 	}
 
 	public function index($tahun = NULL)
 	{
 		$data['tahun'] = $this->nilai_pegawai->get_tahun();
-		$data['pegawai'] = $this->pegawai->pegawai_staff(); // detail pegawai staff
 		$data['_detail_nilai_pegawai'] = $this->nilai_pegawai->_detail_nilai_pegawai($tahun);
 		$data['detail_nilai_pegawai'] = $this->nilai_pegawai->detail_nilai_pegawai($tahun);
 		$data['total'] = $this->nilai_pegawai->num_row_nilai_pegawai($tahun); // banyaknya num rows berdasarkan tahun
-		$this->template->manajer('hasil_penilaian_kinerja','chart',$data);
+		$this->template->spv('hasil_penilaian_kinerja','chart',$data);
 		// echo json_encode($data);
 		// echo count($data);
 
@@ -53,17 +51,7 @@ class Hasil_penilaian_kinerja extends CI_Controller {
 		// print_r($evaluasi);
 	}
 
-	public function promosi($id_nilai_pegawai)
-	{
-		$this->nilai_pegawai->promosi($id_nilai_pegawai);
-		redirect('manajer/Hasil_penilaian_kinerja');
-	}
-
-	public function tidak_promosi($id_nilai_pegawai)
-	{
-		$this->nilai_pegawai->tidak_promosi($id_nilai_pegawai);
-		redirect('manajer/hasil_penilaian_kinerja');
-	}
 }
+
 /* End of file Hasil_penilaian_kinerja.php */
-/* Location: ./application/modules/manajer/controllers/Hasil_penilaian_kinerja.php */
+/* Location: ./application/modules/spv/controllers/Hasil_penilaian_kinerja.php */

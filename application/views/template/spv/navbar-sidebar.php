@@ -16,6 +16,9 @@
             <li>
                 <a href="<?=base_url()?>spv/hasil_usulan_pegawai"><i class="fa fa-search fa-fw"></i> Hasil Usulan Pegawai</a>
             </li>
+            <li>
+                <a href="<?=base_url()?>spv/hasil_penilaian_kinerja"><i class="fa fa-bar-chart-o fa-fw"></i> Hasil Penilaian Kinerja</a>
+            </li>
         </ul>
     </div><!-- /.sidebar-collapse -->
 </div><!-- /.navbar-static-side -->
