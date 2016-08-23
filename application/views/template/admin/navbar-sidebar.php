@@ -25,7 +25,7 @@
                 <a href="<?=base_url()?>admin/hasil_penilaian_kinerja"><i class="fa fa-bar-chart-o fa-fw"></i> Hasil Penilaian Kinerja</a>
             </li>
             <li>
-                <a href="<?=base_url()?>admin/cetak_sk"><i class="fa fa-file-text fa-fw"></i> Cetak SK Usulan Pegawai</a>
+                <a href="<?=base_url()?>admin/cetak_sk"><i class="fa fa-file-text fa-fw"></i> Cetak SK</a>
             </li>
             <li>
                 <a href="<?=base_url()?>auth/users/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>

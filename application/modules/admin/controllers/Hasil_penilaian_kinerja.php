@@ -11,11 +11,13 @@ class Hasil_penilaian_kinerja extends CI_Controller {
 			redirect('auth/users');
 		}
 		$this->load->model('nilai_pegawai_model','nilai_pegawai');
+		$this->load->model('pegawai_model','pegawai');
 	}
 
 	public function index($tahun = NULL)
 	{
 		$data['tahun'] = $this->nilai_pegawai->get_tahun();
+		$data['pegawai'] = $this->pegawai->pegawai_staff(); // detail pegawai staff
 		$data['_detail_nilai_pegawai'] = $this->nilai_pegawai->_detail_nilai_pegawai($tahun);
 		$data['detail_nilai_pegawai'] = $this->nilai_pegawai->detail_nilai_pegawai($tahun);
 		$data['total'] = $this->nilai_pegawai->num_row_nilai_pegawai($tahun); // banyaknya num rows berdasarkan tahun

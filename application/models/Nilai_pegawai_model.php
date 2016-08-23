@@ -104,4 +104,17 @@ class Nilai_pegawai_model extends CI_Model{
 			);
 		$this->db->where('id_nilai_pegawai',$id_nilai_pegawai)->update('nilai_pegawai', $data);
 	}
+
+	// untuk cetak sk
+	public function cetak_sk($tahun)
+	{
+		// $where = "np.status_nilai_pegawai = Dipromosikan and np.tahun .$tahun.";
+		$q = $this->db->select('np.*, p.*, j.*')
+						->from('nilai_pegawai as np')
+						->join('pegawai as p','p.id_pegawai = np.id_pegawai')
+						->join('jabatan as j','j.id_jabatan = np.id_jabatan')
+						->where('np.status_nilai_pegawai = 1 and np.tahun = ', $tahun) // tipe data enum harus berdasarkan colom, 0 artinya kosong 1 dipromosikan dan 2 tidak dipromosikan
+						->get();
+		return $q->result();
+	}
 }

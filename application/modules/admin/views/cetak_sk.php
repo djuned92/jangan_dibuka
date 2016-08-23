@@ -36,7 +36,7 @@
                             </button>
                             <ul class="dropdown-menu" role="menu">
                                 <?php foreach($tahun as $r): ?>
-                                <li><a href="<?=base_url()?>asman/penilaian_kinerja/index/<?=$r->tahun?>"><?=$r->tahun?></a></li>
+                                <li><a href="<?=base_url()?>admin/cetak_sk/index/<?=$r->tahun?>"><?=$r->tahun?></a></li>
                                 <?php endforeach; ?>
                             </ul>
                         </div>
@@ -44,174 +44,42 @@
                 </div>
             </form>
             
-            <table>
-				<tr>
-					<td width="95" rowspan="4"><img src="<?=base_url()?>assets/img/logo.jpg"/ class="img-rounded" style="width:80px; height:80px" /></td>
-				</tr>
+            <table class="table table-striped table-bordered table-hover">
+              <thead>
                 <tr>
-                    <td width="311">PT. PLN (PERSERO)</td>
-                    <td width="94">&nbsp;</td>
-                    <td width="210">&nbsp;</td>
-                    <td width="101">&nbsp;</td>
-                    <td width="192">&nbsp;</td>
-                    <td width="82">&nbsp;</td>
-                    <td width="73">&nbsp;</td>
+                  <th>#</th>
+                  <th>Nama</th>
+                  <th>Jabatan Yang Dipromosikan</th>
+                  <th>Status</th>
+                  <th>Aksi</th>
                 </tr>
+              </thead>
+              <tbody>
+                <?php $i = 1 ; foreach ($cetak_sk_pegawai as $r): ?>
                 <tr>
-                    <td height="29">DISTRIBUSI JAKARTA RAYA</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                  <td><?=$i++?></td>
+                  <td><?=$r->nama?></td>
+                  <td><?=$r->nama_jabatan?></td>
+                  <td><?=$r->status_nilai_pegawai?></td>
+                  <td>
+                    <a target="_blank" href="<?=base_url()?>admin/cetak_sk/cetak/<?=$r->tahun?>">
+                      <button type="button" class="btn btn-xs btn-info" title="Print">
+                        <i class="fa fa-print"></i>
+                      </button>
+                    </a>
+                    <a href="<?=base_url()?>admin/cetak_sk/download/<?=$r->tahun?>">
+                      <button type="button" class="btn btn-xs btn-primary" title="Download">
+                        <i class="fa fa-download"></i>
+                      </button>
+                    </a>
+                  </td>
                 </tr>
-                <tr>
-                    <td>AREA PONDOK GEDE</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td colspan="8">Jl. Jatimakmur No. 150, Pondok Gede - Bekasi</td>
-				</tr>
-				<tr>
-					<td>Telp No </td>
-					<td>(021)848 8385 - 848 8386</td>
-					<td>Kotak Pos</td>
-					<td>17413</td>
-					<td>Call Center</td>
-					<td>(kode area) 123</td>
-					<td>Facebook</td>
-					<td>pln123</td>
-				</tr>
-				<tr>
-					<td>Facsimle</td>
-					<td>(021)848 8388</td>
-					<td>Website</td>
-					<td>www.pln.co.id/disjaya</td>
-					<td>E-mail</td>
-					<td>pln123@pln.co.id</td>
-					<td>Twitter</td>
-					<td>@pln_123</td>
-				</tr>
-				<tr>
-					<td colspan="8"><b>==============================================================================================================================</b></td>		
-				</tr>
-                <tr>
-                    <td height="45">No</td>
-                    <td>....../SDM.07.01/APDG/2016 - R</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td colspan="3">Jakarta, 30 Agustus 2016</td>
-                </tr>
-                <tr>
-                    <td height="45">Lamp</td>
-                    <td colspan="7">Ada</td>
-                </tr>
-                <tr>
-                  <td height="45">Perihal</td>
-                  <td>Usulan Promosi Pegawai</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td colspan="3">Kepada Yth, </td>
-                </tr>
-                <tr>
-                  <td height="45">&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td colspan="3">PT. PLN (PERSERO) DISJAYA </td>
-                </tr>
-                <tr>
-                  <td height="45">&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td colspan="3">Jl. M.I.R. Rais No. 1 </td>
-                </tr>
-                <tr>
-                  <td height="45">&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td colspan="3">Jakarta Pusat</td>
-                </tr>
-                <tr>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td colspan="3"></td>
-                </tr>
-                <tr>
-                  <td height="45">&nbsp;</td>
-                  <td>Up. Manajer SDMO </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td colspan="3"></td>
-                </tr>
-                <tr>
-                  <td height="45">&nbsp;</td>
-                  <td colspan="7">Kami menyampaikan usulan promosi pegawai dari Area Pondok Gede sebagai berikut :</td>
-                </tr>
-                <tr>
-                  <td height="34">&nbsp;</td>
-                  <td colspan="7">Nip : </td>
-                </tr>
-                <tr>
-                  <td height="34">&nbsp;</td>
-                  <td colspan="7">Nama : </td>
-                </tr>
-                <tr>
-                  <td height="34">&nbsp;</td>
-                  <td colspan="7">Jabatan : </td>
-                </tr>
-                <tr>
-                  <td height="34">&nbsp;</td>
-                  <td colspan="7">Jabatan Yang Diusulkan : </td>
-                </tr>
-                <tr>
-                    <td height="34">&nbsp;</td>
-                    <td colspan="7">Demikian surat usulan ini kami perbuat. Atas perhatiannya kami ucapkan terima kasih. </td>
-                </tr>
-				<tr>
-				  <td height="45"></td>
-				  <td></td>
-				  <td></td>
-				  <td></td>
-				  <td></td>
-				  <td colspan="3">MANAJER</td>
-			  </tr>
-				<tr>
-				  <td height="25"></td>
-				  <td></td>
-				  <td></td>
-				  <td></td>
-				  <td></td>
-				  <td colspan="3"></td>
-			  </tr>
-				<tr>
-                  <td height="45"></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td colspan="3">HERI WIBOWO </td>
-                </tr>
-			</table>
+                <?php endforeach ?>
+              </tbody>
+            </table>
+
           </div>
         </div>
 
     </div><!-- /.container-fluid -->
-</div><!-- /#page-wrapper -->
+</div><!-- /#page-wrapper -->s

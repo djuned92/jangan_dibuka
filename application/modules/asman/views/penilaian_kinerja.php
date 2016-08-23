@@ -8,7 +8,7 @@
         </div><!-- /.row -->
 
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-8">
    			  <?php if($this->session->flashdata('create')):?>
                     <div class="alert alert-info">
                         <a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -88,7 +88,50 @@
                 </table>
    			</form>
 
-   			</div><!-- /.col-lg-12 -->
+   			</div><!-- /.col-lg-8 -->
+
+            <div class="col-lg-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        Skala Bobot Nilai
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped table-bordered table-hover">
+                            <tr>
+                                <td>#</td>
+                                <td>Skala</td>
+                                <td>Bobot</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Sangat Baik</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Baik</td>
+                                <td>0.8</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Cukup</td>
+                                <td>0.6</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Kurang</td>
+                                <td>0.4</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Sangat Kurang</td>
+                                <td>0.2</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
         </div><!-- /.row -->
 
     </div><!-- /.container-fluid -->
