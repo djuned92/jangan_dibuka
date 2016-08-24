@@ -2,7 +2,7 @@
 <script type="text/javascript">
   google.charts.load("current", {packages:['corechart']});
   google.charts.setOnLoadCallback(mfepChart); // chart mfep
-  google.charts.setOnLoadCallback(wpChart); // chart wp
+  google.charts.setOnLoadCallback(mpeChart); // chart mpe
   
   function mfepChart() 
   {
@@ -51,7 +51,7 @@
     chart.draw(view, options);
   }
 
-  function wpChart() 
+  function mpeChart() 
   {
     var data = google.visualization.arrayToDataTable([
       ['Nama', 'Nilai'],
@@ -65,8 +65,11 @@
          {
            if($datas->id_nilai_pegawai == $i)
            {
-             $evaluasi = $datas->bobot * $datas->bobot_nilai;
-             $hasil += $evaluasi;
+             // $evaluasi = $datas->bobot * $datas->bobot_nilai;
+              $nilai_bilangan = $datas->bobot_nilai * 10;
+              $nilai_pangkat = $datas->bobot * 10;
+              $evaluasi = pow($nilai_bilangan, $nilai_pangkat);
+              $hasil += $evaluasi;
            }
          }
          if($hasil !=0 and $r->id_nilai_pegawai == $i)
@@ -80,7 +83,7 @@
     ]);
 
     var options = {
-      title: 'Hasil Penilaian Kinerja WP',
+      title: 'Hasil Penilaian Kinerja MPE',
       is3D: true,
       width: 500,
       height: 300,
