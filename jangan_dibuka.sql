@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 24, 2016 at 09:16 AM
+-- Generation Time: Aug 27, 2016 at 08:04 PM
 -- Server version: 5.5.39
 -- PHP Version: 5.4.31
 
@@ -239,7 +239,7 @@ INSERT INTO `pegawai` (`id_pegawai`, `id_jabatan`, `nip`, `nama`, `tempat`, `tan
 (6, 10, 'r41111sa', 'Raisa', 'Jonggol', '1988-06-15', 'raisa@gmail.com', 'Jawa Barat', 'P', 'S1', 2005, 'no_profile1.png', 'Belum Kawin'),
 (7, 10, '56888894b', 'Tulus', 'Kepulauan Seribu', '2987-01-20', 'tulus@gmail.com', 'Jakarta', 'L', 'SMA/SMK', 2003, 'tes.png', 'Belum Kawin'),
 (9, 12, '19580904 198003 2 001', 'Prawitasari, Apt, M.Kes', 'Bali', '1976-12-31', 'a@gmail.com', 'jakarta selatan kp. utan', 'P', 'S2', 2000, 'Hydrangeas.jpg', 'Kawin'),
-(10, 10, '1111093000016', 'Djunaedi Ahmad', 'Bali', '1992-04-17', 'ahmaddjunaedi92@gmail.com', 'Bali', 'L', 'S2', 2005, 'Penguins.jpg', 'Belum Kawin'),
+(10, 10, '1111093000016', 'Ahmad Djunaedii', 'Bali', '1992-04-17', 'ahmaddjunaedi92@gmail.com', 'Bali', 'L', 'S2', 2005, 'Penguins.jpg', 'Belum Kawin'),
 (11, 1, '1111093000001', 'Manajer', 'Bandung', '1965-01-20', 'manajer@gmail.com', 'Bandung Lautan Api', 'L', 'S2', 1992, '', 'Kawin');
 
 -- --------------------------------------------------------
