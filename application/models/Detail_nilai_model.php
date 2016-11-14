@@ -17,4 +17,14 @@ class Detail_nilai_model extends CI_Model{
 		}
 		$this->db->insert_batch('detail_nilai', $data);
 	}
+
+	public function check_detail_nilai($id_nilai_pegawai)
+	{
+		$q = $this->db->select('dn.*,np.id_nilai_pegawai')
+						->from('detail_nilai as dn')
+						->join('nilai_pegawai as np','dn.id_nilai_pegawai = np.id_nilai_pegawai')
+						->where('dn.id_nilai_pegawai',$id_nilai_pegawai)
+						->get();
+		return $q->result();
+	}
 }

@@ -171,13 +171,14 @@
                     <table class="table table-striped table-bordered table-hover">
                         <tr>
                             <th>Tahun</th>
-                            <th colspan="2">
+                            <th>
                                 <div class="form-group">
                                     <div class="col-sm-3">
                                         <input class="form-control" type="text" name="tahun">
                                     </div>
                                 </div>
                             </th>
+                            <th>Bobot nilai dari 0 - 1</th>
                         </tr>
                         <tr>
                             <th>#</th>

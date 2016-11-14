@@ -104,6 +104,8 @@
                     <td><?=$r->nama?></td>
                     <td><?=$r->nama_jabatan?></td>
                     <td>
+                    <!-- input hidden tahun -->
+                    <input type="hidden" name="tahun" value="<?=$r->tahun?>">
                       <!-- status pegawai dipromosikan atau tidak -->
                       <div class="btn-group">
                           <button class="btn btn-xs btn-default">
@@ -215,7 +217,7 @@
                         </tbody>
                     </table>
 
-                    <table class="table table-striped"ss>
+                    <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th colspan="3">Sertifikat Diklat</th>

@@ -1,4 +1,3 @@
-<!-- Page Content -->
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
@@ -8,8 +7,8 @@
         </div><!-- /.row -->
 
         <div class="row">
-            <div class="col-lg-8">
-   			  <?php if($this->session->flashdata('create')):?>
+            <div class="col-lg-12">
+   			    <?php if($this->session->flashdata('create')):?>
                     <div class="alert alert-info">
                         <a href="#" class="close" data-dismiss="alert">&times;</a>
                         <strong><?php echo $this->session->flashdata('create'); ?></strong>
@@ -55,7 +54,20 @@
 	                    <select name="id_nilai_pegawai" class="form-control">
 		                    <option value="">-- Pilih --</option>
                             <?php foreach($penilaian as $r):?>
-		                    <option value="<?=$r->id_nilai_pegawai?>"><?=$r->nama?></option>
+		                    <option value="<?=$r->id_nilai_pegawai?>">
+                                <?php
+                                    $this->load->model('detail_nilai_model','detail_nilai');
+                                    $data = $this->detail_nilai->check_detail_nilai($r->id_nilai_pegawai);
+                                    if($data != NULL)
+                                    {
+                                        echo $r->nama.' Sudah Dinilai';
+                                    }
+                                    else
+                                    {
+                                        echo $r->nama;
+                                    }
+                                ?>
+                            </option>
                             <?php endforeach; ?>
 		                </select>
 	                </div>
@@ -77,7 +89,7 @@
                                     <input class="form-control" type="text" name="bobot_nilai[]">
                                 </div>
                             </div>
-                        </td>
+                        </td>              
                 	</tr>
                     <?php endforeach;?>
                 	<tr>
@@ -86,11 +98,13 @@
                 		</td>
                 	</tr>
                 </table>
+                <!-- input hidden -->
+                <input type="hidden" name="tahun" value="<?=$this->uri->segment(4)?>">
    			</form>
 
    			</div><!-- /.col-lg-8 -->
 
-            <div class="col-lg-4">
+            <!-- <div class="col-lg-4">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         Skala Bobot Nilai
@@ -130,9 +144,9 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div><!-- /.row -->
 
     </div><!-- /.container-fluid -->
-</div><!-- /#page-wrapper -->
+</div><!-- /#page-wrapper

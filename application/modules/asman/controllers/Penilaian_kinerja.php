@@ -40,9 +40,11 @@ class Penilaian_kinerja extends CI_Controller {
 		}
 		else
 		{
+			$tahun = $this->input->post('tahun');
+
 			$this->detail_nilai->create_detail_nilai_pegawai();
 			$this->session->set_flashdata('create','Pegawai berhasil dinilai');
-			redirect('asman/penilaian_kinerja');
+			redirect('asman/penilaian_kinerja/index/'.$tahun);
 		}
 	}
 }

@@ -56,12 +56,15 @@ class Hasil_penilaian_kinerja extends CI_Controller {
 	public function promosi($id_nilai_pegawai)
 	{
 		$this->nilai_pegawai->promosi($id_nilai_pegawai);
-		redirect('manajer/Hasil_penilaian_kinerja');
+		// $tahun = $this->uri->segment(4);
+		$this->session->set_flashdata('promosi', 'Pegawai berhasil dipromosikan');
+		redirect('manajer/hasil_penilaian_kinerja');
 	}
 
 	public function tidak_promosi($id_nilai_pegawai)
 	{
 		$this->nilai_pegawai->tidak_promosi($id_nilai_pegawai);
+		// $tahun = $this->uri->segment(4);
 		redirect('manajer/hasil_penilaian_kinerja');
 	}
 }

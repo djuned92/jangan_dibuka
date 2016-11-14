@@ -33,7 +33,7 @@ class Nilai_pegawai_model extends CI_Model{
 
 	public function get_nilai_pegawai($tahun)
 	{
-		$q = $this->db->select('np.*, p.nama')
+		$q = $this->db->select('np.*, p.nama, p.nip')
 					  ->from('nilai_pegawai as np')
 					  ->join('pegawai as p','np.id_pegawai = p.id_pegawai')
 					  ->where('np.tahun', $tahun)
@@ -43,11 +43,12 @@ class Nilai_pegawai_model extends CI_Model{
 
 	public function get_hasil_usulan() // function untuk lihat hasil usulan spv sdm
 	{
-		$q = $this->db->select('np.*, p.nip, p.nama, j.*')
+		$q = $this->db->select('np.*, p.nip, p.nama,  j.*')
 					  ->from('nilai_pegawai as np')
 					  ->join('pegawai as p','p.id_pegawai = np.id_pegawai')
 					  ->join('jabatan as j','j.id_jabatan = np.id_jabatan')
-					  ->order_by('np.id_nilai_pegawai','ASC')
+					  ->group_by('np.tahun','ASC')
+					  // ->order_by('np.id_nilai_pegawai','ASC')
 					  ->get();
 		return $q->result();
 	}
