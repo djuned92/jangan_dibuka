@@ -17,14 +17,17 @@
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/dist/css/formValidation.css">
   </head>
 
-<body>
+<body style="background-image:url(<?=base_url()?>assets/img/pln.png)">
 
 <div class="container">
     <div class="row">
 
       <!-- form: -->
         <section>
-            <div class="col-lg-4 col-lg-offset-4">
+            <div class="col-lg-4">
+                
+            </div>
+            <div class="col-lg-4">
                 <div class="page-header">
                     <h2>Please sign in</h2>
                 </div>
@@ -69,6 +72,9 @@
                 </form>
 
             </div>
+        <div class="col-lg-4">
+                
+        </div>
         </section>
         <!-- :form -->
     </div>

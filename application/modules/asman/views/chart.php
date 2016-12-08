@@ -7,10 +7,10 @@
   function mfepChart() 
   {
     var data = google.visualization.arrayToDataTable([
-      ["Element", "Density", { role: "style" } ],
-      <?php foreach($_detail_nilai_pegawai as $r):?>
-      ["<?=$r->nama?>", 
-      <?php
+        ["Element", "Density", { role: "style" } ],
+        <?php foreach ($_detail_nilai_pegawai as $r): ?>
+        ["<?=$r->nama?>", 
+        <?php
         $hasil = 0;
         for($i=1; $i<=$total; $i++)
         {
@@ -30,15 +30,15 @@
         }
       ?>, "opacity : 0,2"],
       <?php endforeach; ?>
-    ]);
+      ]);
 
     var view = new google.visualization.DataView(data);
     view.setColumns([0, 1,
-                     { calc: "stringify",
-                       sourceColumn: 1,
-                       type: "string",
-                       role: "annotation" },
-                     2]);
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
 
     var options = {
       title: "Hasil Penilaian Kinerja MFEP",
