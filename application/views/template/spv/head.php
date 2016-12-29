@@ -4,7 +4,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin 2 - Bootstrap Admin Theme</title>
+<title>Sistem Penunjang Keputusan</title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.css">

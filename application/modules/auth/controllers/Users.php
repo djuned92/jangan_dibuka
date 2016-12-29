@@ -17,7 +17,7 @@ class Users extends CI_Controller {
 		$this->form_validation->set_rules('username','Username','trim|required'); // ini agar validation run == FALSE soalnya validation pake bootstrap validation
 		if ($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('login');	
+			$this->load->view('login_2');	
 		} 
 		else 
 		{

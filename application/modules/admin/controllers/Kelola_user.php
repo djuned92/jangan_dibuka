@@ -74,7 +74,7 @@ class Kelola_user extends CI_Controller {
             $config['smtp_port'] = '465';
             $config['mailpath'] = '/usr/bin/sendmail';
             $config['smtp_user'] = 'ahmaddjunaedi92@gmail.com';
-            $config['smtp_pass'] = 'junjunned';
+            $config['smtp_pass'] = 'junjunned92';
             $config['mailtype'] = 'html';
             $config['charset'] = 'iso-8859-1';
             $config['wordwrap'] = TRUE;
@@ -125,7 +125,7 @@ class Kelola_user extends CI_Controller {
             $config['smtp_port'] = '465';
             $config['mailpath'] = '/usr/bin/sendmail';
             $config['smtp_user'] = 'ahmaddjunaedi92@gmail.com';
-            $config['smtp_pass'] = 'junjunned';
+            $config['smtp_pass'] = 'junjunned92';
             $config['mailtype'] = 'html';
             $config['charset'] = 'iso-8859-1';
             $config['wordwrap'] = TRUE;
