@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2016 at 10:52 AM
+-- Generation Time: Mar 08, 2017 at 01:19 PM
 -- Server version: 5.5.39
 -- PHP Version: 5.4.31
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `detail_nilai` (
   `id_nilai_pegawai` int(3) NOT NULL,
   `id_kriteria` int(3) NOT NULL,
   `bobot_nilai` decimal(3,2) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=45 ;
 
 --
 -- Dumping data for table `detail_nilai`
@@ -55,7 +55,33 @@ INSERT INTO `detail_nilai` (`id_detail_nilai`, `id_nilai_pegawai`, `id_kriteria`
 (15, 4, 20, '0.90'),
 (16, 4, 24, '1.00'),
 (17, 4, 25, '0.80'),
-(18, 4, 26, '1.00');
+(18, 4, 26, '1.00'),
+(19, 5, 15, '1.00'),
+(20, 5, 17, '1.00'),
+(21, 5, 20, '1.00'),
+(22, 5, 24, '1.00'),
+(23, 5, 25, '1.00'),
+(24, 5, 26, '1.00'),
+(25, 6, 15, '1.00'),
+(26, 6, 17, '1.00'),
+(27, 6, 20, '1.00'),
+(28, 6, 24, '0.80'),
+(29, 6, 25, '0.80'),
+(30, 6, 26, '1.00'),
+(31, 7, 15, '0.80'),
+(32, 7, 17, '0.80'),
+(33, 7, 20, '1.00'),
+(34, 7, 24, '0.80'),
+(35, 7, 25, '0.80'),
+(36, 7, 26, '1.00'),
+(37, 8, 15, '0.60'),
+(38, 8, 17, '1.00'),
+(39, 8, 20, '1.00'),
+(40, 8, 24, '0.60'),
+(41, 8, 25, '0.80'),
+(42, 8, 26, '1.00'),
+(43, 9, 15, '0.60'),
+(44, 9, 16, '1.00');
 
 -- --------------------------------------------------------
 
@@ -81,13 +107,13 @@ INSERT INTO `jabatan` (`id_jabatan`, `kode_jabatan`, `nama_jabatan`, `status_jab
 (4, 'C.7.3.1', 'Staff Pengendalian Anggaran dan Keuangan', 'Ada'),
 (5, 'C.7.4', 'Supervisor Pengawasan Pendapatan', 'Ada'),
 (6, 'C.7.4.1', 'Staff Pengawasan Pendapatan', 'Ada'),
-(7, 'C.7.5', 'Supervisor Akuntansi', 'Kosong'),
+(7, 'C.7.5', 'Supervisor Akuntansi', 'Ada'),
 (8, 'C.7.5.1', 'Staff Akuntansi', 'Ada'),
 (9, 'C.7.6', 'Supervisor SDM', 'Ada'),
 (10, 'C.7.6.1', 'Staff SDM', 'Ada'),
 (11, 'C.7.7', 'Supervisor Logistik', 'Ada'),
 (12, 'C.7.7.1', 'Staff Logistik', 'Ada'),
-(13, 'C.7.8', 'Supervisor Sekretariat', 'Ada'),
+(13, 'C.7.8', 'Supervisor Sekretariat', 'Kosong'),
 (14, 'C.7.8.1', 'Staff Sekretariat', 'Ada');
 
 -- --------------------------------------------------------
@@ -99,7 +125,7 @@ INSERT INTO `jabatan` (`id_jabatan`, `kode_jabatan`, `nama_jabatan`, `status_jab
 CREATE TABLE IF NOT EXISTS `kriteria` (
 `id_kriteria` int(3) NOT NULL,
   `nama_kriteria` varchar(30) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `kriteria`
@@ -117,7 +143,8 @@ INSERT INTO `kriteria` (`id_kriteria`, `nama_kriteria`) VALUES
 (23, 'Motivasi'),
 (24, 'Lama Bekerja'),
 (25, 'Sertifikat Diklat'),
-(26, 'Mengerjakan Diluar Jobdesk');
+(26, 'Mengerjakan Diluar Jobdesk'),
+(27, 'Keuletan');
 
 -- --------------------------------------------------------
 
@@ -130,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `kriteria_tahunan` (
   `tahun` int(4) NOT NULL,
   `id_kriteria` int(3) NOT NULL,
   `bobot` decimal(3,2) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `kriteria_tahunan`
@@ -145,7 +172,15 @@ INSERT INTO `kriteria_tahunan` (`id_kriteria_tahunan`, `tahun`, `id_kriteria`, `
 (6, 2016, 20, '0.30'),
 (7, 2016, 24, '0.20'),
 (8, 2016, 25, '0.10'),
-(9, 2016, 26, '0.20');
+(9, 2016, 26, '0.20'),
+(10, 2017, 15, '0.10'),
+(11, 2017, 17, '0.10'),
+(12, 2017, 20, '0.30'),
+(13, 2017, 24, '0.20'),
+(14, 2017, 25, '0.10'),
+(15, 2017, 26, '0.20'),
+(16, 2018, 15, '0.30'),
+(17, 2018, 16, '0.70');
 
 -- --------------------------------------------------------
 
@@ -180,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `nilai_pegawai` (
   `id_jabatan` int(3) NOT NULL,
   `tahun` int(4) NOT NULL,
   `status_nilai_pegawai` enum('Dipromosikan','Tidak Dipromosikan') NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `nilai_pegawai`
@@ -190,7 +225,12 @@ INSERT INTO `nilai_pegawai` (`id_nilai_pegawai`, `id_pegawai`, `id_jabatan`, `ta
 (1, '7', 3, 2015, 'Tidak Dipromosikan'),
 (2, '6', 3, 2015, 'Tidak Dipromosikan'),
 (3, '7', 7, 2016, 'Dipromosikan'),
-(4, '6', 7, 2016, 'Tidak Dipromosikan');
+(4, '6', 7, 2016, 'Tidak Dipromosikan'),
+(5, '15', 13, 2017, 'Dipromosikan'),
+(6, '12', 13, 2017, 'Tidak Dipromosikan'),
+(7, '10', 13, 2017, 'Tidak Dipromosikan'),
+(8, '9', 13, 2017, 'Tidak Dipromosikan'),
+(9, '12', 13, 2018, 'Tidak Dipromosikan');
 
 -- --------------------------------------------------------
 
@@ -212,7 +252,7 @@ CREATE TABLE IF NOT EXISTS `pegawai` (
   `mulai_bekerja` int(4) NOT NULL,
   `foto` varchar(50) NOT NULL,
   `status` enum('Kawin','Belum Kawin') NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `pegawai`
@@ -220,14 +260,17 @@ CREATE TABLE IF NOT EXISTS `pegawai` (
 
 INSERT INTO `pegawai` (`id_pegawai`, `id_jabatan`, `nip`, `nama`, `tempat`, `tanggal_lahir`, `email`, `alamat`, `jenis_kelamin`, `pendidikan`, `mulai_bekerja`, `foto`, `status`) VALUES
 (1, 9, '88111189z', 'Herlina Wulan Sari', 'Jakarta', '1988-01-20', 'herila@rocketmail.com', 'Bojong Pondok Gede', 'P', 'S1', 2008, 'Penguins1.jpg', 'Kawin'),
-(3, 2, '8711137z', 'Zulkarnaen', 'Yogyakarta', '1970-04-17', 'samsudingoceng@gmail.com', 'Komplek graha indah jati asih', 'L', 'S1', 2001, '', 'Kawin'),
+(3, 2, '8711137z', 'Zulkarnaen', 'Yogyakarta', '1970-04-17', 'irvan.prastya22@gmail.com', 'Komplek graha indah jati asih', 'L', 'S1', 2001, '', 'Kawin'),
 (5, 3, '90345678y', 'Santi Yenedi', 'Klaten', '1990-05-17', 'santi@yen.com', 'Jawa Timur', 'P', 'S1', 2002, '', 'Belum Kawin'),
 (6, 10, '88092380y', 'Herri Irawan', 'Jonggol', '1988-06-15', 'herri@gmail.com', 'Jawa Barat', 'L', 'D3', 2005, 'Lighthouse.jpg', 'Kawin'),
 (7, 14, '90121278y', 'Elyana', 'Kepulauan Seribu', '2987-01-20', 'tulus@gmail.com', 'Jakarta', 'L', 'SMA/SMK', 2003, 'tes.png', 'Belum Kawin'),
 (9, 12, '85098765z', 'Munirah', 'Bali', '1976-12-31', 'munirah@yahoo.com', 'jakarta selatan kp. utan', 'P', 'S2', 2000, 'Hydrangeas.jpg', 'Kawin'),
 (10, 12, '92134567y', 'Sujadmiko', 'Bali', '1992-04-17', 'sud@miko.com', 'Bali', 'L', 'S2', 2005, 'Penguins.jpg', 'Belum Kawin'),
 (11, 1, '65851234z', 'Firman Ansyari', 'Bandung', '1965-01-20', 'manajer@gmail.com', 'Bandung Lautan Api', 'L', 'S2', 1985, '', 'Kawin'),
-(12, 8, 'dummy123', 'Dummy', 'Yogyakarta', '1957-12-31', 'a@gmail.com', 'Yogyakarta', 'L', 'D3', 2000, 'busana-gamis-terbarugrosir-baju-gamis-modern.jpg', 'Kawin');
+(12, 8, 'dummy123', 'Dummy', 'Yogyakarta', '1957-12-31', 'a@gmail.com', 'Yogyakarta', 'L', 'D3', 2000, 'busana-gamis-terbarugrosir-baju-gamis-modern.jpg', 'Kawin'),
+(13, 14, '65858898z', 'Dzaelani', 'Jonggol', '1984-12-31', 'Dzaelani@gmail.com', 'Jonggol', 'L', 'D3', 2004, 'Lighthouse1.jpg', 'Kawin'),
+(14, 14, '65856789z', 'Ayu Diah Pitaloka', 'Bogor', '1978-12-31', 'ayu@yahoo.com', 'Bogor', 'P', 'S1', 2002, 'Chrysanthemum2.jpg', 'Kawin'),
+(15, 12, '79851122z', 'Budi Haryanto', 'Jember', '1988-12-31', 'budi@rocketmail.com', 'Jember', 'L', 'D3', 2005, 'Koala.jpg', 'Kawin');
 
 -- --------------------------------------------------------
 
@@ -384,7 +427,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `detail_nilai`
 --
 ALTER TABLE `detail_nilai`
-MODIFY `id_detail_nilai` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+MODIFY `id_detail_nilai` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT for table `jabatan`
 --
@@ -394,12 +437,12 @@ MODIFY `id_jabatan` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 -- AUTO_INCREMENT for table `kriteria`
 --
 ALTER TABLE `kriteria`
-MODIFY `id_kriteria` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+MODIFY `id_kriteria` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `kriteria_tahunan`
 --
 ALTER TABLE `kriteria_tahunan`
-MODIFY `id_kriteria_tahunan` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+MODIFY `id_kriteria_tahunan` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `level_user`
 --
@@ -409,12 +452,12 @@ MODIFY `id_level_user` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT for table `nilai_pegawai`
 --
 ALTER TABLE `nilai_pegawai`
-MODIFY `id_nilai_pegawai` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id_nilai_pegawai` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-MODIFY `id_pegawai` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+MODIFY `id_pegawai` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `pesan`
 --
